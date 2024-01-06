@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{../css/style.css}">
+    <title>Login Form</title>
+    
+</head>
+<body>
+
+<div class="login-container">
+
+             <div class="message" th:if="${message != null}">
+                      [[${message}]]
+             </div>
+   
+    <h2>Login</h2>
+    <form class="login-form" 
+     th:action="@{/login-page}"
+     method="post"
+     th:object="${user}"
+     
+     >
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input th:field="*{username}" type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input th:field="*{password}" type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <button type="submit">Login</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
